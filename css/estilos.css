@@ -21,3 +21,33 @@ body,html{
 .form-inline{
 	display: inline-flex;
 }
+
+.txt{
+	/*margin: -10%;*/
+	display: block;
+	position: absolute;
+	left:44%;
+	/*top:0%;*/
+	/* transform: translate(-100%, -50%); */
+	text-align: right;
+}
+
+.txtnum{
+	width: 50px;
+	display: block;
+	position: absolute;
+	/* left: 28.5%; */
+	/* transform: translate(-100%, -50%); */
+	text-align: right;
+	
+}
+
+.salbut{
+	width: auto;
+	display: block;
+	position: absolute;
+	left: 81.5%;
+	transform: translate(-100%, 0%);
+	text-align: right;
+	
+}

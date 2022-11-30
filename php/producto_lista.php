@@ -57,8 +57,11 @@
 			              </p>
 			            </div>
 			            <div class="has-text-right">
-						<a href="index.php?vista=product_out&product_id='.$rows['producto_id'].'" class="button is-link is-rounded is-small">Registrar Salida</a>
-			                <a href="index.php?vista=product_img&product_id_up='.$rows['producto_id'].'" class="button is-link is-rounded is-small">Imagen</a>
+							<form method="POST" action="index.php?vista=product_out">
+								<input type="hidden" name="prod-id" value="'.$rows['producto_id'].'"/>
+								<button class="button salbut is-link is-warning is-small is-rounded">Registrar Salida</button>
+							</form>
+			                <a href="index.php?vista=product_img&product_id_up='.$rows['producto_id'].'" class="button is-selected is-link is-rounded is-small">Imagen</a>
 			                <a href="index.php?vista=product_update&product_id_up='.$rows['producto_id'].'" class="button is-success is-rounded is-small">Actualizar</a>
 			                <a href="'.$url.$pagina.'&product_id_del='.$rows['producto_id'].'" class="button is-danger is-rounded is-small">Eliminar</a>
 			            </div>

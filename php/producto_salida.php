@@ -38,6 +38,7 @@
 		$contador=$inicio+1;
 		$pag_inicio=$inicio+1;
 		foreach($datos as $rows){
+			
 			$tabla.='
 				<article class="media">
 			        <figure class="media-left">
@@ -53,16 +54,22 @@
 			            <div class="content">
 			              <p>
 			                <strong>'.$contador.' - '.$rows['producto_nombre'].'</strong><br>
-			                <strong>CODIGO:</strong> '.$rows['producto_codigo'].', <strong>STOCK:</strong> '.$rows['producto_stock'].', <strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].'
+			                <strong>CODIGO:</strong> '.$rows['producto_codigo'].', <strong>STOCK:</strong> '.$rows['producto_stock'].', <strong>CATEGORIA:</strong> '.$rows['categoria_nombre'].' 
 			              </p>
 			            </div>
 			            <div class="has-text-right">
-							<a href="index.php?vista=product_out&product_id='.$rows['producto_id'].'" class="button is-link is-rounded is-small">Agregar Producto</a>
+							<form method="POST" action="index.php?vista=product_out">
+								<input type="hidden" name="prod-id" value="'.$rows['producto_id'].'"/>
+								<input name="stock" type="number" class="txtnum" value="'.$rows['producto_stock'].'"/>
+								<label class="txt">piezas salientes</label>
+								<input class="button is-link is-rounded is-small" type="submit" value="Agregar Producto"/> 
+							</form>
 			            </div>
 			        </div>
 			    </article>
 
 			    <hr>
+
             ';
             $contador++;
 		}
@@ -86,7 +93,40 @@
 	if($total>0 && $pagina<=$Npaginas){
 		$tabla.='<p class="has-text-right">Mostrando productos <strong>'.$pag_inicio.'</strong> al <strong>'.$pag_final.'</strong> de un <strong>total de '.$total.'</strong></p>';
 	}
-
+	
+	
+		// <form action="index.php?vista=" method="POST">
+		// <div class="has-text-right">
+		// 	<button class="button is-link is-success is-rounded">Guardar Salida</button>
+		// 	<a href="index.php?vista=home" class="button is-link is-danger is-rounded">Cancelar</a>
+		echo'<input type="hidden" name="idprod" value="<?php $valor ?>">';
+		// </div><br>
+		echo '<div>
+				<label for="">Personal</label>
+				<select name="lista-personal" id="">
+					<option value="-1" >Seleccione Personal</option>';
+				$personal=conexion();
+				$personal=$conexion->query("SELECT personal_id, personal_nombre, personal_apaterno FROM personal");
+					while($row=$personal->fetch(PDO::FETCH_ASSOC)){
+						echo '<option value="'.$row['personal_id'].'">'.$row['personal_nombre'].' '.$row['personal_apaterno'].'</option>';
+					}
+				echo '
+				</select>
+				<label for="">Unidades</label>
+				<select name="lista-unidades" id="">
+					<option value="-1" >Seleccione Personal</option>';
+				$unidades=conexion();
+                $unidades=$unidades->query("SELECT unidad_id, unidad_eco FROM unidades");
+                    while($row1=$unidades->fetch(PDO::FETCH_ASSOC)){
+                        echo '<option value='.$row1["unidad_id"].'>'.$row1["unidad_eco"].'</option>';
+                    }
+				echo'</select>
+			</div>
+			<div>
+                <label></label>
+                <textarea name="obs" cols="45" rows="5" placeholder="Observaciones"></textarea>
+            </div>
+		';
 	$conexion=null;
 	echo $tabla;
 

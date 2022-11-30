@@ -43,9 +43,47 @@
                 <div class="navbar-dropdown">
                     <a href="index.php?vista=product_new" class="navbar-item">Nuevo</a>
                     <a href="index.php?vista=product_list" class="navbar-item">Lista</a>
-                    <a href="index.php?vista=product_out" class="navbar-item">Salidas</a>
                     <a href="index.php?vista=product_category" class="navbar-item">Por categoría</a>
                     <a href="index.php?vista=product_search" class="navbar-item">Buscar</a>
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Salidas</a>
+
+                <div class="navbar-dropdown">
+                    <a href="index.php?vista=product_out" class="navbar-item">Nuevo</a>
+                    
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Personal</a>
+
+                <div class="navbar-dropdown">
+                    <a href="index.php?vista=person_new" class="navbar-item">Nuevo</a>
+                    <a href="index.php?vista=person_list" class="navbar-item">Lista</a>
+                    <a href="index.php?vista=person_search" class="navbar-item">Buscar</a>
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Unidades</a>
+
+                <div class="navbar-dropdown">
+                    <!-- <a href="index.php?vista=unit_new" class="navbar-item">Nuevo</a> -->
+                    <a href="index.php?vista=unit_list" class="navbar-item">Lista</a>
+                    <!-- <a href="index.php?vista=unit_search" class="navbar-item">Buscar</a> -->
+                </div>
+            </div>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">Provedores</a>
+
+                <div class="navbar-dropdown">
+                    <a href="index.php?vista=supplier_new" class="navbar-item">Nuevo</a>
+                    <a href="index.php?vista=supplier_list" class="navbar-item">Lista</a>
+                    <a href="index.php?vista=supplier_search" class="navbar-item">Buscar</a>
                 </div>
             </div>
 
